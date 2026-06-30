@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0
+
+- New custom report frame: gold-bordered dialog with "Missing Enchant" title, dark backdrop, icon + colored tag (red ENCHANT / cyan SOCKET ×N) on every row
+- Subtitle counter: shows total enchants and sockets missing at a glance
+- Hover any row to preview the item via tooltip
+- Frame is draggable, scrollable when entries exceed 10 rows
+- Replaces the previous plain `StaticPopupDialog`
+
 ## 1.0.0
 
 - First release

@@ -154,27 +154,6 @@ local function BuildReport(missing)
     return table.concat(lines, "\n")
 end
 
-local function BuildPopupReport(missing)
-    local lines = {}
-    for _, entry in ipairs(missing) do
-        if entry.kind == "enchant" then
-            lines[#lines + 1] = string.format("|cffff5555Enchant:|r %s", entry.slotName)
-        else
-            lines[#lines + 1] = string.format("|cffffaa00Socket x%d:|r %s", entry.empty, entry.slotName)
-        end
-    end
-    return table.concat(lines, "\n")
-end
-
-StaticPopupDialogs["MISSINGENCHANTS_REPORT"] = {
-    text = "|cffff7eb3MissingEnchants|r\n\n%s",
-    button1 = OKAY,
-    timeout = 0,
-    whileDead = true,
-    hideOnEscape = true,
-    preferredIndex = 3,
-}
-
 local function Report(missing, source)
     if #missing == 0 then
         if source == "manual" then
@@ -188,8 +167,8 @@ local function Report(missing, source)
         print(BuildReport(missing))
     end
 
-    if (NS.db.notifyPopup and source ~= "manual-silent") then
-        StaticPopup_Show("MISSINGENCHANTS_REPORT", BuildPopupReport(missing))
+    if NS.db.notifyPopup and NS.ShowReport then
+        NS:ShowReport(missing)
     end
 end
 
