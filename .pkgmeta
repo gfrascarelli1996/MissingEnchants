@@ -8,6 +8,8 @@ ignore:
   - .pkgmeta
   - README.md
   - LICENSE
+  - assets/gallery_*
+  - assets/render_*
 
 manual-changelog:
   filename: CHANGELOG.md
